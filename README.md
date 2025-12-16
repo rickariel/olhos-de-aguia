@@ -2,16 +2,15 @@
 
 ### Status Atual do Modelo
 
-Este projeto utiliza a arquitetura modular completa (Visão + Lógica + Visualização). Atualmente, ele está configurado para utilizar o modelo base **`yolov8n.pt`** (treinado no COCO).
+Este projeto utiliza a arquitetura modular completa (Visão + Lógica + Visualização). Atualmente, ele está configurado para utilizar o modelo base **`yolov8n.pt`**.
 
   * **Comportamento:** O sistema detecta a `person` (pessoa), mas, como não consegue identificar `helmet` (capacete) ou `vest` (colete), a **Lógica de Segurança** é acionada, resultando em um **alerta VERMELHO** para todas as pessoas em cena, indicando "PERIGO: SEM EPI".
   * **Próxima Etapa:** O projeto está pronto para receber um modelo customizado (`best_ppe.pt`) treinado em EPIs para alcançar a funcionalidade total.
 
 -----
 
-### Visão Geral do Projeto
+## Visão Geral do Projeto
 
-O **Olhos de Águia** é um sistema de Visão Computacional de alta performance projetado para fiscalizar e garantir a conformidade com as normas de segurança (HSE) em ambientes industriais, como canteiros de obras e fábricas. O sistema analisa um feed de vídeo (webcam ou arquivo) em tempo real e verifica se os trabalhadores estão utilizando os EPIs obrigatórios (Capacete e Colete de Segurança).
 
 ### Stack Tecnológico
 
@@ -22,9 +21,8 @@ O **Olhos de Águia** é um sistema de Visão Computacional de alta performance 
 | **Processamento** | OpenCV | Captura de vídeo, cálculo de FPS e renderização de caixas. |
 | **Gerenciamento** | Poetry | Gerenciamento robusto de dependências e ambientes virtuais. |
 
-### 📐 Arquitetura Modular
+### Arquitetura
 
-O projeto foi desenhado seguindo o princípio de Responsabilidade Única (SRP), separando as três principais etapas do pipeline de Visão Computacional. Isso garante escalabilidade e fácil manutenção.
 
 | Módulo | Arquivo | Responsabilidade |
 | :--- | :--- | :--- |
@@ -70,10 +68,3 @@ poetry run python main.py
 **Para usar um arquivo de vídeo (ex: `data/video_1.mp4`):**
 
   * Edite a variável `VIDEO_SOURCE` no arquivo `main.py` para o caminho desejado.
-
-### Próximos Passos (Roadmap)
-
-1.  **Integração do Modelo Customizado:** Treinar ou integrar um modelo `best_ppe.pt` de EPIs do Roboflow.
-2.  **Alerta de Áudio:** Adicionar um módulo para reproduzir um som de alerta quando a condição "PERIGO" for detectada.
-3.  **Registro:** Implementar o log de eventos (data, hora, pessoa) no caso de não conformidade.
-4.  **Interface Web:** Exportar a visualização para um stream de vídeo (ex: usando Flask ou FastAPI) para monitoramento remoto.
