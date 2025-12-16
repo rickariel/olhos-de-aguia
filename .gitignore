@@ -1,0 +1,4 @@
+.env
+data/video_1.mp4`
+src/__pycache__/
+poetry.lock

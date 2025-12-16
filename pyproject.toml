@@ -1,0 +1,22 @@
+[project]
+name = "epi-detector"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "rick",email = "ricardoarieldesouzabatista0901@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ultralytics (>=8.3.237,<9.0.0)",
+    "opencv-python (>=4.12.0.88,<5.0.0.0)",
+    "roboflow (>=1.2.11,<2.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)"
+]
+
+[tool.poetry]
+packages = [{include = "epi_detector", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
