@@ -2,24 +2,11 @@ import cv2
 from src.detector import Detector
 from src.logic import SafetyLogic
 from src.visualizer import Visualizer
-from dotenv import load_dotenv
-from roboflow import Roboflow
-import os
-
-
-load_dotenv()
-api_key = os.getenv("ROBOFLOW_API_KEY")
-
-
-rf = Roboflow(api_key=api_key)
-project = rf.workspace("testcasque").project("ppe-detection-qlq3d")
-version = project.version(1)
-
 
 def main():
 
     MODEL_PATH = version.model 
-    VIDEO_SOURCE = "data/video_1.mp4" 
+    VIDEO_SOURCE = 0 
 
     # --- INICIALIZAÇÃO ---
     print("Iniciando Olhos de Águia...")
